@@ -11,12 +11,16 @@ const PREFIKS = "/images/blog/";
 
 /** Musi zgadzać się z listą `category` w .pages.yml */
 export const KATEGORIE = [
+  "Gabinet i wizyta",
   "Plecy i kręgosłup",
   "Kark i barki",
   "Praca przy biurku",
   "Sport i regeneracja",
   "Codzienne nawyki",
 ] as const;
+
+/** Domyślna zachęta pod wpisem - ta sama co `default` pola `cta` w .pages.yml */
+export const DOMYSLNE_CTA = "Napięcie wraca mimo ćwiczeń? Popracujmy nad nim razem.";
 
 export type Poradnik = {
   slug: string;
@@ -28,6 +32,8 @@ export type Poradnik = {
   category: string | null;
   cover: string | null;
   coverAlt: string;
+  /** Zdanie nad przyciskiem rezerwacji na końcu wpisu */
+  cta: string;
   /** Treść wpisu jako gotowy HTML */
   html: string;
   /** Szacowany czas czytania w minutach */
@@ -183,6 +189,7 @@ function wczytaj(): Poradnik[] {
       category: tekst(fm.category) || null,
       cover: tekst(fm.cover) || null,
       coverAlt: tekst(fm.coverAlt),
+      cta: tekst(fm.cta) || DOMYSLNE_CTA,
       html: md.parse(tresc, { async: false }),
       minuty: Math.max(1, Math.round(tresc.split(/\s+/).filter(Boolean).length / 200)),
     });

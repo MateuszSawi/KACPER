@@ -51,6 +51,7 @@ content:
         type: select
         options:
           values:
+            - Gabinet i wizyta
             - Plecy i kręgosłup
             - Kark i barki
             - Praca przy biurku
@@ -68,6 +69,11 @@ content:
         description: Wyłącz, gdy wpis jest gotowy do publikacji.
         type: boolean
         default: true
+      - name: cta
+        label: Zachęta pod wpisem (CTA)
+        description: Zdanie nad przyciskiem „Zarezerwuj termin” na końcu wpisu. Puste pole = tekst domyślny.
+        type: string
+        default: "Napięcie wraca mimo ćwiczeń? Popracujmy nad nim razem."
       - name: body
         label: Treść
         type: rich-text

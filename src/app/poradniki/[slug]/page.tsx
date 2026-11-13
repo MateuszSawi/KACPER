@@ -99,7 +99,7 @@ export default async function PoradnikPage({ params }: PageProps<"/poradniki/[sl
           ) : null}
 
           <aside className={styles.cta}>
-            <p className={`display ${styles.ctaText}`}>Napięcie wraca mimo ćwiczeń? Popracujmy nad nim razem.</p>
+            <p className={`display ${styles.ctaText}`}>{p.cta}</p>
             <BookLink section="poradnik" detail={p.slug} />
           </aside>
         </div>
