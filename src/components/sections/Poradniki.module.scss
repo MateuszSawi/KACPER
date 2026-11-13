@@ -1,0 +1,40 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  margin-bottom: clamp(1.5rem, 2.4vw, 2.25rem);
+}
+
+.all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: var(--s-6) clamp(1.5rem, 3vw, 3rem);
+
+  @include up(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include up(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// przy dwóch kolumnach trzecia karta zostawałaby sama w rzędzie
+.grid > :nth-child(3) {
+  @media (min-width: 640px) and (max-width: 1023.98px) {
+    display: none;
+  }
+}

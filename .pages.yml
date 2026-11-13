@@ -1,0 +1,75 @@
+# Konfiguracja Pages CMS (https://pagescms.org) - panel do pisania poradników.
+# Wpisy to pliki Markdown w content/poradniki, zdjęcia trafiają do public/images/blog.
+# Lista kategorii musi zgadzać się z KATEGORIE w src/lib/poradniki.ts.
+
+media:
+  input: public/images/blog
+  output: /images/blog
+  extensions: [jpg, jpeg, png, webp, avif]
+  rename: safe
+
+content:
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/poradniki
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, pubDate]
+      primary: title
+      sort: [pubDate, title]
+      default:
+        sort: pubDate
+        order: desc
+    fields:
+      - name: title
+        label: Tytuł
+        type: string
+        required: true
+      - name: description
+        label: Opis do Google
+        description: Jedno-dwa zdania, maks. 160 znaków. Pokazuje się w Google i na liście poradników.
+        type: string
+        required: true
+        options:
+          maxlength: 160
+      - name: pubDate
+        label: Data publikacji
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: updatedDate
+        label: Data aktualizacji
+        description: Uzupełnij tylko wtedy, gdy poprawiasz opublikowany wpis.
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: Kategoria
+        type: select
+        options:
+          values:
+            - Plecy i kręgosłup
+            - Kark i barki
+            - Praca przy biurku
+            - Sport i regeneracja
+            - Codzienne nawyki
+      - name: cover
+        label: Zdjęcie główne
+        type: image
+      - name: coverAlt
+        label: Opis zdjęcia głównego
+        description: Co widać na zdjęciu - dla osób niewidomych i dla Google.
+        type: string
+      - name: draft
+        label: Szkic (nie pokazuj na stronie)
+        description: Wyłącz, gdy wpis jest gotowy do publikacji.
+        type: boolean
+        default: true
+      - name: body
+        label: Treść
+        type: rich-text
+        options:
+          format: markdown

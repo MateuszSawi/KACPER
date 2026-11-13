@@ -70,6 +70,11 @@ export function Footer() {
                   Dojazd
                 </Link>
               </li>
+              <li>
+                <Link href="/poradniki/" className="link">
+                  Poradniki
+                </Link>
+              </li>
               {social.map((s) => (
                 <li key={s.href}>
                   <a href={s.href} className="link" target="_blank" rel="noopener">

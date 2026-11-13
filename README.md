@@ -96,3 +96,12 @@ Cloudflare Pages lub Netlify: polecenie build `npm run build`, katalog publikacj
 
 Gotowa strona główna. Następny etap: podstrony usług i problemów, blog, polityka prywatności, 404,
 `sitemap.xml`, `robots.txt`, obraz Open Graph.
+
+## Poradniki (blog) i Pages CMS
+
+- Wpisy: pliki Markdown w `content/poradniki/` (nazwa pliku = adres `/poradniki/<nazwa>/`). Pola i panel opisuje `.pages.yml`; instrukcja dla autora: `BLOG-INSTRUKCJA.md`.
+- Wczytywanie i walidacja: `src/lib/poradniki.ts`. Wpis z `draft: true` (albo bez pola `draft`) nie trafia na stronę, do `sitemap.xml` ani do `/poradniki/rss.xml`. Brakujące pola dają ostrzeżenie w buildzie, nie błąd.
+- Lista kategorii jest w dwóch miejscach i musi się zgadzać: `.pages.yml` (pole `category`) oraz `KATEGORIE` w `src/lib/poradniki.ts`.
+- Zdjęcia: CMS wgrywa je do `public/images/blog/`. Przed każdym `npm run dev` i `npm run build` skrypt `scripts/obrazy-blog.mjs` robi z nich wersje AVIF/WebP (480-1600 px) w `public/images/opt/blog/` - ten katalog i `src/data/obrazy-blog.json` nie są commitowane.
+- Po buildzie `scripts/po-buildzie.mjs` kopiuje pliki wstępnego ładowania podstron pod nazwy, o które prosi przeglądarka (inaczej zwykły hosting plików zwraca dla nich 404).
+- Publikacja z panelu = commit w repozytorium. Hosting musi sam przebudowywać stronę po każdym commicie (`npm run build`, katalog `out`).

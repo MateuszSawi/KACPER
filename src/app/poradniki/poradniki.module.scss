@@ -1,0 +1,186 @@
+// Góra podstrony: ciemny pas pod przezroczystym nagłówkiem (jak hero na stronie głównej).
+.top {
+  display: grid;
+  padding-block: calc(var(--header-h) + clamp(2.5rem, 5vw, 5rem)) clamp(2.5rem, 5vw, 5rem);
+
+  > div {
+    display: grid;
+    gap: var(--s-3);
+  }
+}
+
+.title {
+  max-width: 18em;
+  font-size: fluid(34px, 68px);
+}
+
+.grid {
+  display: grid;
+  gap: var(--s-6) clamp(1.5rem, 3vw, 3rem);
+
+  @include up(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include up(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// ---------- pojedynczy wpis ----------
+
+.back {
+  justify-self: start;
+  font-size: 0.875rem;
+}
+
+.meta {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.articleTitle {
+  max-width: 20em;
+  font-size: fluid(32px, 60px);
+}
+
+.article {
+  padding-block: clamp(2.5rem, 5vw, 5rem) var(--section-y);
+}
+
+.cover {
+  max-width: 68rem;
+  margin: 0 auto clamp(2rem, 4vw, 4rem);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Treść z Markdowna - znaczniki bez klas, dlatego :global.
+.prose {
+  max-width: 44rem;
+  margin-inline: auto;
+  font-size: fluid(17px, 19px);
+  line-height: 1.7;
+
+  > :global(*) + :global(*) {
+    margin-top: 1.25em;
+  }
+
+  :global(h2),
+  :global(h3),
+  :global(h4) {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  :global(h2) {
+    margin-top: 2em;
+    font-size: fluid(26px, 36px);
+  }
+
+  :global(h3) {
+    margin-top: 1.75em;
+    font-size: fluid(21px, 26px);
+  }
+
+  :global(h4) {
+    margin-top: 1.5em;
+    font-size: 1.125em;
+  }
+
+  :global(a) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  :global(strong) {
+    font-weight: 600;
+  }
+
+  :global(em) {
+    font-style: italic;
+  }
+
+  :global(ul),
+  :global(ol) {
+    display: grid;
+    gap: 0.5em;
+    padding-left: 1.4em;
+  }
+
+  :global(ul) {
+    list-style: disc;
+  }
+
+  :global(ol) {
+    list-style: decimal;
+  }
+
+  :global(li)::marker {
+    color: var(--c-green);
+  }
+
+  :global(blockquote) {
+    padding-left: 1.25em;
+    border-left: 2px solid var(--c-green);
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    line-height: 1.5;
+  }
+
+  :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+
+  :global(picture) {
+    display: block;
+  }
+
+  :global(hr) {
+    height: 1px;
+    margin-block: 2.5em;
+    border: 0;
+    background: var(--line);
+  }
+
+  :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375em;
+  }
+
+  :global(th),
+  :global(td) {
+    padding: 0.6em 0.75em;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+}
+
+.cta {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-3);
+  max-width: 44rem;
+  margin: clamp(2.5rem, 5vw, 4.5rem) auto 0;
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.ctaText {
+  font-size: fluid(22px, 30px);
+}

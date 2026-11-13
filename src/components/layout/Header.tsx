@@ -13,6 +13,7 @@ const nav = [
   { href: "/#oferta", label: "Oferta" },
   { href: "/#faq", label: "Pytania" },
   { href: "/#dojazd", label: "Dojazd" },
+  { href: "/poradniki/", label: "Poradniki" },
 ];
 
 export function Header() {
