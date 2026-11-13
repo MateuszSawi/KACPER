@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/data/site";
 import { dataPoPolsku, type Poradnik } from "@/lib/poradniki";
 import { BlogImg } from "./BlogImg";
 import styles from "./Karta.module.scss";
@@ -22,6 +23,8 @@ export function Karta({ poradnik: p, naglowek: H = "h3" }: { poradnik: Poradnik;
         <H className={`h3 ${styles.title}`}>{p.title}</H>
         {p.description ? <p className={styles.desc}>{p.description}</p> : null}
         <p className={styles.meta}>
+          {site.terapeuta}
+          {" · "}
           {p.pubDate ? <time dateTime={p.pubDate}>{dataPoPolsku(p.pubDate)}</time> : null}
           {p.pubDate ? " · " : null}
           {p.minuty} min czytania

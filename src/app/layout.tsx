@@ -34,6 +34,10 @@ export const metadata: Metadata = {
   },
   description:
     "Gabinet terapii manualnej w Rumi. Pełne 60 minut pracy z napięciem pleców, karku i barków - jeden terapeuta, bez pośpiechu. Rezerwacja online. Dojazd z Redy, Wejherowa i Gdyni.",
+  // Autor strony (wykonanie) - <meta name="author"> i <meta name="creator"> w kodzie HTML.
+  // Podstrony poradników nadpisują autora na autora tekstu.
+  authors: [{ name: "Mateusz Sawicki" }],
+  creator: "Mateusz Sawicki",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

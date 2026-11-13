@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/poradniki/[slug]"
   return {
     title: p.title,
     description: p.description || undefined,
+    authors: [{ name: site.terapeuta }],
     alternates: { canonical: url, types: { "application/rss+xml": "/poradniki/rss.xml" } },
     openGraph: {
       type: "article",
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: PageProps<"/poradniki/[slug]"
       description: p.description || undefined,
       publishedTime: p.pubDate ?? undefined,
       modifiedTime: p.updatedDate ?? p.pubDate ?? undefined,
+      authors: [site.terapeuta],
       images: okladka ? [{ url: okladka, alt: p.coverAlt }] : undefined,
     },
   };
@@ -69,6 +71,8 @@ export default async function PoradnikPage({ params }: PageProps<"/poradniki/[sl
             ← Wszystkie poradniki
           </Link>
           <p className={styles.meta}>
+            Autor: {site.terapeuta}
+            {" · "}
             {p.category ? `${p.category} · ` : null}
             {p.pubDate ? <time dateTime={p.pubDate}>{dataPoPolsku(p.pubDate)}</time> : null}
             {p.pubDate ? " · " : null}
