@@ -1,14 +1,13 @@
 ---
-title: "Ile kosztuje terapia manualna w Rumi, Redzie i Wejherowie? Ceny 2026"
-description: "Ile zapłacisz za godzinę terapii manualnej w Rumi i okolicy, od czego zależy cena i kiedy pakiet wizyt faktycznie się opłaca."
+title: Ile kosztuje terapia manualna w Rumi, Redzie i Wejherowie?
+description: Ile zapłacisz za godzinę terapii manualnej w Rumi i okolicy, od
+  czego zależy cena i kiedy pakiet wizyt faktycznie się opłaca.
 pubDate: 2026-11-13
-updatedDate: ""
 category: Gabinet i wizyta
 cover: /images/blog/zdjecie-01.jpg
-coverAlt: ""
 draft: false
+cta: Napięcie wraca mimo ćwiczeń? Popracujmy nad nim razem.
 ---
-
 Zanim zarezerwujesz wizytę, chcesz wiedzieć, ile zapłacisz. To rozsądne. Poniżej podaję swoje ceny bez gwiazdek i wyjaśniam, na co patrzeć, porównując gabinety w Rumi, Redzie i Wejherowie.
 
 ## Ile kosztuje wizyta u mnie
