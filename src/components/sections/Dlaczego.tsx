@@ -34,7 +34,7 @@ export function Dlaczego() {
       <div className="container">
         <header className="sectionHead">
           <h2 id="dlaczego-tytul" className="h2" data-split>
-            Tutaj to Ty jesteś <em>najważniejszy.</em>
+            U mnie to Ty jesteś <em>najważniejszy.</em>
           </h2>
         </header>
 
