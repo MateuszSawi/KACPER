@@ -1,0 +1,100 @@
+.grid {
+  display: grid;
+  border-top: 1px solid var(--line);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include up(xl) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.item {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.875rem;
+  padding: clamp(1.75rem, 3vw, 3rem) 0;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+
+  @include up(md) {
+    padding-inline: clamp(1.5rem, 2.5vw, 3rem);
+    border-left: 1px solid var(--line);
+
+    &:nth-child(2n + 1) {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  @include up(xl) {
+    &:nth-child(2n + 1) {
+      padding-left: clamp(1.5rem, 2.5vw, 3rem);
+      border-left: 1px solid var(--line);
+    }
+
+    &:nth-child(3n + 1) {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  // mosiężna kreska wjeżdżająca przy najechaniu
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 2px;
+    background: var(--c-brass);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s var(--ease);
+  }
+
+  @include hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.index {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--c-brass);
+}
+
+.desc {
+  color: var(--muted);
+}
+
+// trzy zdjęcia w schodkowym układzie
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 2rem);
+  margin-top: var(--block-gap);
+
+  > :nth-child(3) {
+    display: none;
+  }
+
+  > :nth-child(2) {
+    margin-top: 2.5rem;
+  }
+
+  @include up(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    > :nth-child(3) {
+      display: block;
+    }
+
+    > :nth-child(2) {
+      margin-top: clamp(2rem, 3.5vw, 3.5rem);
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.section {
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  padding-block: 1rem 2rem;
+}
+
+// wielki cudzysłów w tle
+.mark {
+  position: absolute;
+  top: -0.32em;
+  left: 50%;
+  font-family: var(--font-display);
+  font-size: clamp(18rem, 40vw, 44rem);
+  line-height: 1;
+  color: rgb(130 150 121 / 0.1);
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.marquee {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  // cała płaszczyzna lekko pochylona — karty „płyną” po skosie
+  transform: rotate(-2deg) scale(1.04);
+  cursor: grab;
+  touch-action: pan-y;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.row {
+  overflow: visible;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.card {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.75rem;
+  width: clamp(18rem, 78vw, 27rem);
+  margin-right: 1.25rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgb(38 56 45 / 0.92);
+  transition:
+    border-color 0.6s var(--ease),
+    background-color 0.6s var(--ease);
+
+  @include hover {
+    border-color: var(--c-brass);
+    background: var(--c-green);
+  }
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: fluid(18px, 22px);
+  font-weight: 350;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+}
+
+.who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.875rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.what {
+  color: var(--muted);
+}
+
+.stars {
+  display: flex;
+  gap: 0.2rem;
+  width: 100%;
+  margin-bottom: 0.25rem;
+
+  svg {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    fill: var(--c-brass);
+  }
+}

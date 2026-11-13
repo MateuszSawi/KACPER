@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "sass:math";
+@use "variables" as *;
+
+@function z($layer) {
+  @return map.get($z-layers, $layer);
+}
+
+// Płynna wartość między min a max w zakresie szerokości viewportu.
+// np. font-size: fluid(32px, 96px);
+@function fluid($min, $max, $min-vw: 375px, $max-vw: 1600px) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  @return clamp(#{$min}, #{$intercept} + #{$slope * 100}vw, #{$max});
+}

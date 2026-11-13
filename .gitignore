@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# surowe nagrania klientow (z dzwiekiem) - zrodla dla npm run wideo, tylko lokalnie
+/wideo-zrodla/

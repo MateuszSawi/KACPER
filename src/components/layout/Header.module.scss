@@ -1,0 +1,247 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: z("header");
+  color: var(--c-paper);
+  transition: transform 0.7s var(--ease);
+
+  // tło pojawia się po przewinięciu (animujemy tylko opacity)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(31 46 37 / 0.86);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgb(130 150 121 / 0.22);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+  }
+}
+
+.scrolled::before {
+  opacity: 1;
+}
+
+.open::before {
+  opacity: 0;
+}
+
+.bar {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  height: var(--header-h);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.logoMark {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--c-brass);
+}
+
+.nav {
+  display: none;
+  gap: clamp(1.25rem, 2.2vw, 2.25rem);
+
+  @include up(lg) {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+  padding-block: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--c-mist);
+  transition: color 0.4s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0.25rem 0;
+    height: 1px;
+    background: var(--c-brass);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s var(--ease);
+  }
+
+  @include hover {
+    color: var(--c-paper);
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.phone {
+  display: none;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+
+  @include up(xl) {
+    display: block;
+  }
+}
+
+// CTA w nagłówku — pojawia się po przewinięciu hero (tylko desktop;
+// na mobile jest dolny pasek)
+.cta {
+  display: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity 0.6s var(--ease),
+    transform 0.6s var(--ease),
+    visibility 0s 0.6s;
+
+  @include up(md) {
+    display: block;
+  }
+}
+
+.ctaOn {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.burger {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: -0.5rem;
+  color: inherit;
+
+  @include up(lg) {
+    display: none;
+  }
+}
+
+.burgerLines {
+  position: relative;
+  width: 1.5rem;
+  height: 0.5rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.5s var(--ease);
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  .open & {
+    &::before {
+      transform: translateY(3.25px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-3.25px) rotate(-45deg);
+    }
+  }
+}
+
+.progress {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--c-brass);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--header-h) + 2rem) $gutter 2rem;
+  background: var(--c-deep);
+  overflow-y: auto;
+
+  &[hidden] {
+    display: none;
+  }
+
+  nav {
+    display: grid;
+  }
+}
+
+.menuLink {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid rgb(130 150 121 / 0.25);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  line-height: 1.1;
+  animation: menuIn 0.8s var(--ease) both;
+  animation-delay: calc(var(--i) * 60ms + 80ms);
+
+  span {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--c-mist);
+  }
+}
+
+.menuFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}

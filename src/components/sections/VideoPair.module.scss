@@ -1,0 +1,129 @@
+.pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  width: 100%;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.pane {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #17231c center / cover no-repeat;
+  color: var(--c-mist);
+
+  // „po” lekko niżej — schodkowy układ jak w reszcie strony
+  &:nth-child(2) {
+    margin-top: clamp(1.5rem, 4vw, 3.5rem);
+    margin-bottom: calc(-1 * clamp(1.5rem, 4vw, 3.5rem));
+  }
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s ease;
+}
+
+// koniec pętli: film wygasa do pierwszej klatki (tło panelu), potem wraca
+.fading .video {
+  opacity: 0;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(70% 45% at 60% 22%, rgb(197 209 188 / 0.18), transparent 70%),
+    radial-gradient(60% 40% at 20% 95%, rgb(217 184 143 / 0.08), transparent 70%),
+    #17231c;
+}
+
+.pane:nth-child(2) .placeholder {
+  background:
+    radial-gradient(70% 45% at 40% 22%, rgb(197 209 188 / 0.26), transparent 70%),
+    #1b2a21;
+}
+
+.playIcon {
+  display: grid;
+  place-items: center;
+  width: clamp(3rem, 6vw, 4.25rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(197 209 188 / 0.4);
+  border-radius: 50%;
+
+  svg {
+    width: 38%;
+    margin-left: 6%;
+    fill: var(--c-paper);
+  }
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  font-size: 0.75rem;
+  line-height: 1.5;
+
+  strong {
+    font-weight: 500;
+    color: var(--c-paper);
+  }
+}
+
+.tag {
+  position: absolute;
+  top: clamp(0.625rem, 1.2vw, 1rem);
+  left: clamp(0.625rem, 1.2vw, 1rem);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgb(197 209 188 / 0.35);
+  border-radius: 999px;
+  background: rgb(31 46 37 / 0.7);
+  backdrop-filter: blur(6px);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-paper);
+}
+
+.pane:nth-child(2) .tag {
+  border-color: var(--c-brass);
+  color: var(--c-brass);
+}
+
+// przycisk pauzy/odtwarzania — na styku obu filmów
+.toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--c-brass);
+  color: var(--c-deep);
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s var(--ease);
+
+  svg {
+    width: 1.125rem;
+    fill: currentColor;
+  }
+
+  @include hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}

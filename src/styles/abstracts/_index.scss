@@ -1,0 +1,5 @@
+// Tylko rzeczy, które NIE generują CSS (zmienne, funkcje, mixiny).
+// Wstrzykiwane automatycznie do każdego pliku .scss (next.config.ts -> additionalData).
+@forward "variables";
+@forward "functions";
+@forward "mixins";

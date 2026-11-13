@@ -1,0 +1,409 @@
+@use "reset";
+
+:root {
+  // Paleta marki
+  --c-green: #3c5545; // kolor przewodni, tła sekcji
+  --c-deep: #1f2e25; // najgłębsza zieleń: hero, stopka, tekst na jasnym
+  --c-sage: #829679; // TYLKO dekoracja (linie, ikony, obramowania)
+  --c-mist: #c5d1bc; // tekst drugorzędny na ciemnej zieleni
+  --c-paper: #f6f3ec; // ciepły off-white
+  --c-brass: #d9b88f; // główne CTA i drobne akcenty
+
+  --font-display: var(--font-fraunces), "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  // Odstępy (skala 8 px)
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-6: 3rem;
+  --s-8: 4rem;
+  --s-12: 6rem;
+  // Rytm pionowy całej strony - trzy stopnie, żadnych jednorazowych wartości w sekcjach:
+  --section-y: clamp(4rem, 7vw, 7rem); // góra/dół każdej sekcji
+  --block-gap: clamp(2.5rem, 4.5vw, 4.5rem); // między dużymi blokami wewnątrz sekcji
+  --head-gap: clamp(2rem, 3.6vw, 3.5rem); // pod nagłówkiem sekcji
+
+  --radius: 2px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --header-h: 4.5rem;
+  --bar-h: 0px;
+
+  // Domyślny motyw = najgłębsza zieleń
+  --bg: var(--c-deep);
+  --fg: var(--c-paper);
+  --muted: var(--c-mist);
+  --line: rgb(130 150 121 / 0.32);
+}
+
+[data-theme="deep"] {
+  --bg: var(--c-deep);
+  --fg: var(--c-paper);
+  --muted: var(--c-mist);
+  --line: rgb(130 150 121 / 0.32);
+}
+
+[data-theme="green"] {
+  --bg: var(--c-green);
+  --fg: var(--c-paper);
+  --muted: var(--c-mist);
+  --line: rgb(197 209 188 / 0.26);
+}
+
+[data-theme="paper"] {
+  --bg: var(--c-paper);
+  --fg: var(--c-deep);
+  --muted: #47594d;
+  --line: rgb(31 46 37 / 0.16);
+}
+
+[data-theme] {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+html {
+  background: var(--c-deep);
+  color: var(--c-paper);
+  font-family: var(--font-sans);
+  font-size: 100%;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: clip;
+  padding-bottom: var(--bar-h);
+
+  @include down(md) {
+    --bar-h: 4.25rem;
+  }
+}
+
+::selection {
+  background: var(--c-brass);
+  color: var(--c-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-brass);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+// ---------- Prymitywy wspólne ----------
+
+.container {
+  @include container;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+
+  &::before {
+    content: "";
+    width: 2.5rem;
+    height: 1px;
+    background: var(--c-sage);
+  }
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-variation-settings: "SOFT" 50;
+  // Interlinia i odstępy liter dobrane tak, żeby ogonki (ą, ę, j, g, y) i znaki
+  // nad literami (ó, ć, ś, ż, Ł) nie były przycinane ani nie nachodziły na siebie.
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+// Wyróżnienia w nagłówkach są tym samym krojem co reszta - bez kursywy.
+em {
+  font-style: normal;
+  font-weight: inherit;
+}
+
+// Nagłówki odsłaniane liniami (SplitText): maska każdej linii ma zapas na ogonki
+// i znaki diakrytyczne, zrównoważony ujemnym marginesem, więc układ się nie zmienia.
+.split-line-mask {
+  padding: 0.14em 0.06em 0.22em;
+  margin: -0.14em -0.06em -0.22em;
+}
+
+.h2 {
+  @extend .display;
+  font-size: fluid(36px, 84px);
+}
+
+.h3 {
+  @extend .display;
+  font-size: fluid(24px, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.lead {
+  max-width: 38em;
+  font-size: fluid(17px, 21px);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sectionHead {
+  display: grid;
+  gap: var(--s-3);
+  margin-bottom: var(--head-gap);
+
+  // sama mała etykieta (bez dużego nagłówka) potrzebuje mniej powietrza pod sobą
+  &:has(> .eyebrow:only-child) {
+    margin-bottom: clamp(1.5rem, 2.4vw, 2.25rem);
+  }
+
+  @include up(lg) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    align-items: end;
+    // pionowo: mała przerwa między etykietą a nagłówkiem; poziomo: szeroka między nagłówkiem a akapitem
+    gap: var(--s-3) var(--s-8);
+
+    .eyebrow {
+      grid-column: 1 / -1;
+    }
+
+    // nagłówek bez akapitu obok zajmuje całą szerokość
+    .h2:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// ---------- Przyciski ----------
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  min-height: 3.5rem;
+  padding: 0 1.75rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--c-brass);
+  color: var(--c-deep);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  isolation: isolate;
+  will-change: transform;
+
+  // wypełnienie wjeżdżające od dołu
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--c-paper);
+    transform: translateY(101%);
+    transition: transform 0.6s var(--ease);
+  }
+
+  .btnArrow {
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    transition: transform 0.6s var(--ease);
+  }
+
+  @include hover {
+    &::before {
+      transform: translateY(0);
+    }
+
+    .btnArrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1px var(--line);
+
+  &::before {
+    background: var(--fg);
+  }
+
+  @include hover {
+    color: var(--bg);
+  }
+}
+
+.btn--small {
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  font-size: 0.875rem;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: currentColor;
+    transform-origin: right;
+    transition: transform 0.6s var(--ease);
+  }
+
+  @include hover {
+    &::after {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+  }
+}
+
+// ---------- Etykieta „Przykład” ----------
+
+.przyklad {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+// ---------- Stany początkowe animacji ----------
+// Ukrywamy tylko wtedy, gdy JS działa i użytkownik nie prosi o ograniczenie ruchu.
+// Jeśli silnik animacji się nie załaduje, klasa .js jest zdejmowana (layout.tsx).
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    opacity: 0;
+  }
+
+  html.js [data-split] {
+    visibility: hidden;
+  }
+
+  html.js [data-line] {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+
+// ---------- Lenis ----------
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+// ---------- Przejścia między podstronami ----------
+
+// Nagłówek i dolny pasek mobilny są osobnymi warstwami przejścia - zostają na wierzchu
+// i nie znikają pod animowaną treścią, gdy zmienia się podstrona.
+header {
+  view-transition-name: naglowek;
+}
+
+[aria-label="Szybka rezerwacja"] {
+  view-transition-name: pasek-mobilny;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@include reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+// ---------- Dostępność ----------
+
+.srOnly {
+  @include visually-hidden;
+}
+
+.skip {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: z("loader");
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--c-brass);
+  color: var(--c-deep);
+  font-weight: 600;
+  transform: translateY(-300%);
+
+  &:focus-visible {
+    transform: none;
+  }
+}

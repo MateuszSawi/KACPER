@@ -1,0 +1,66 @@
+// Nagłówek w jednej linii na całą szerokość (desktop); na węższych ekranach łamie się normalnie.
+.title {
+  font-size: fluid(34px, 76px);
+
+  // od tej szerokości zdanie mieści się w jednej linii w obrębie siatki
+  @media (min-width: 1360px) {
+    white-space: nowrap;
+  }
+}
+
+.layout {
+  display: grid;
+  gap: var(--s-6);
+
+  @include up(lg) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: clamp(3rem, 7vw, 8rem);
+  }
+}
+
+.media {
+  @include up(lg) {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+
+  @include down(lg) {
+    max-width: 28rem;
+  }
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(3.5rem, 8vw, 7rem) minmax(0, 1fr);
+  gap: var(--s-3);
+  padding-block: clamp(1.75rem, 3.5vw, 3rem);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.line {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: fluid(56px, 112px);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--c-green);
+  font-variant-numeric: lining-nums;
+}
+
+.desc {
+  max-width: 34em;
+  margin-top: 0.75rem;
+  color: var(--muted);
+}

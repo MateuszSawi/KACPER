@@ -1,0 +1,23 @@
+// Akcent między hero a resztą strony - pas z jednym zdaniem, nie sekcja.
+
+.band {
+  padding-block: clamp(3rem, 5vw, 5rem);
+  // Zieleń rozjaśnia się w środku i wtapia w ciemne sekcje nad i pod pasem.
+  background: radial-gradient(ellipse 75% 150% at 50% 50%, var(--c-green), var(--c-deep));
+}
+
+.text {
+  max-width: 24em;
+  margin-inline: auto;
+  font-size: fluid(26px, 48px);
+  line-height: 1.1;
+  text-align: center;
+}
+
+// Na desktopie zdanie dzieli się dokładnie po „ból” (każda część w swojej linii);
+// na węższych ekranach obie części płyną jak zwykły tekst.
+.part {
+  @include up(lg) {
+    display: block;
+  }
+}

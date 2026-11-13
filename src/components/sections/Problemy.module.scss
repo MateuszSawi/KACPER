@@ -1,0 +1,68 @@
+// Akcent między sekcjami, nie sekcja: małe odstępy, sama typografia.
+// Bez teł, ramek, zaokrągleń, cieni i gradientów.
+
+$linia: rgb(130 150 121 / 0.3);
+
+.section {
+  // dół bez odstępu: zaraz pod spodem, na tym samym tle, zaczyna się mapa ciała ze swoim odstępem
+  padding-block: clamp(2rem, 3.2vw, 3rem) 0;
+  overflow: hidden;
+}
+
+.label {
+  margin-bottom: clamp(1.25rem, 1.8vw, 1.75rem);
+}
+
+// Okno na rząd - od krawędzi do krawędzi ekranu. Przewijanie ręczne zostaje
+// jako zapas (bez JS / przy ograniczonym ruchu), pasek przewijania jest ukryty.
+.viewport {
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Jeden rząd. Im węższe kolumny, tym krótsza droga rzędu przy przewijaniu, czyli spokojniejszy ruch:
+// telefon - prawie 3 zdania na ekranie, tablet - 4, desktop - 5, bardzo szeroki monitor - 6.
+.row {
+  --kolumna: 36vw;
+
+  display: flex;
+  width: max-content;
+  will-change: transform;
+
+  @include up(md) {
+    --kolumna: 25vw;
+  }
+
+  @include up(xl) {
+    --kolumna: 20vw;
+  }
+
+  // bardzo szerokie monitory: prawie cały rząd mieści się naraz, ruch jest minimalny
+  @media (min-width: 2200px) {
+    --kolumna: 16vw;
+  }
+
+  li {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: var(--kolumna);
+    padding: 0.5rem clamp(0.875rem, 2vw, 2rem);
+    font-family: var(--font-display);
+    font-size: fluid(16px, 23px);
+    font-weight: 350;
+    line-height: 1.25;
+    letter-spacing: -0.012em;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  // cienka pionowa linia między zdaniami
+  li + li {
+    border-left: 1px solid $linia;
+  }
+}
