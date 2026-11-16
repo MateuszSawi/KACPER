@@ -1,10 +1,45 @@
+// największa szerokość księgi - do jej prawej krawędzi wyrównany jest też napis w nagłówku
+$ksiega-max: 77.5rem;
+
 .section {
   overflow: hidden;
 }
 
+// etykieta sekcji po lewej, źródło opinii po prawej (na telefonie jedno pod drugim)
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  margin-bottom: clamp(1.5rem, 2.4vw, 2.25rem);
+}
+
+.src {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  // księga jest wyśrodkowana i węższa niż kontener - napis kończy się równo z jej prawą krawędzią
+  margin-right: max(0px, (100% - #{$ksiega-max}) / 2);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.stars {
+  display: flex;
+  flex: none;
+  gap: 0.2rem;
+
+  svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    fill: var(--c-brass);
+  }
+}
+
 .stage {
   position: relative;
-  padding-block: 1rem 2rem;
 }
 
 // wielki cudzysłów w tle
@@ -21,89 +56,335 @@
   user-select: none;
 }
 
-.marquee {
+// ---------- Księga ----------
+
+.book {
   position: relative;
   display: grid;
-  gap: 1.25rem;
-  // cała płaszczyzna lekko pochylona — karty „płyną” po skosie
-  transform: rotate(-2deg) scale(1.04);
-  cursor: grab;
-  touch-action: pan-y;
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
-.dragging {
-  cursor: grabbing;
-  user-select: none;
-}
-
-.row {
-  overflow: visible;
-}
-
-.track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
-
-.card {
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.75rem;
-  width: clamp(18rem, 78vw, 27rem);
-  margin-right: 1.25rem;
-  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  max-width: $ksiega-max;
+  margin-inline: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgb(38 56 45 / 0.92);
-  transition:
-    border-color 0.6s var(--ease),
-    background-color 0.6s var(--ease);
 
-  @include hover {
-    border-color: var(--c-brass);
-    background: var(--c-green);
+  // rozkładówka: dwie strony, cień w zgięciu i cienka linia grzbietu
+  @include up(lg) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      pointer-events: none;
+    }
+
+    &::before {
+      width: 6rem;
+      background: linear-gradient(
+        90deg,
+        rgb(0 0 0 / 0),
+        rgb(0 0 0 / 0.2) 49%,
+        rgb(0 0 0 / 0.2) 51%,
+        rgb(0 0 0 / 0)
+      );
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      width: 1px;
+      background: var(--line);
+    }
   }
 }
 
-.quote {
-  font-family: var(--font-display);
-  font-size: fluid(18px, 22px);
-  font-weight: 350;
-  line-height: 1.42;
-  letter-spacing: -0.01em;
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.5rem, 3.4vw, 3rem) clamp(1.25rem, 4vw, 3.75rem);
 }
 
-.who {
+.pageL {
+  perspective: 1400px;
+}
+
+// spis opinii - tylko na rozkładówce; na telefonie i tablecie zostają same opinie
+.pageR {
+  display: none;
+
+  @include up(lg) {
+    display: flex;
+  }
+}
+
+// mała etykieta u góry strony: numer opinii po lewej, tytuł listy po prawej stronie księgi
+.run {
+  margin-bottom: clamp(1.5rem, 3vw, 2.75rem);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+// Wszystkie opinie leżą w tej samej komórce siatki, jedna na drugiej: strona ma wysokość
+// najdłuższej z nich, więc przy zmianie opinii nic się nie przesuwa.
+.sheets {
+  display: grid;
+  flex: 1;
+  touch-action: pan-y;
+}
+
+.sheet {
+  display: flex;
+  grid-area: 1 / 1;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transform-origin: 100% 50%;
+  // poprzednia opinia gaśnie, zanim zniknie
+  transition:
+    opacity 0.35s var(--ease),
+    visibility 0s 0.35s;
+}
+
+// kartka przewraca się od grzbietu
+.on {
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+  animation: turn 0.8s var(--ease) backwards;
+}
+
+@keyframes turn {
+  from {
+    opacity: 0;
+    transform: rotateY(-16deg) translateX(10px);
+  }
+}
+
+.bq p {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-variation-settings: "SOFT" 50;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+.s p {
+  font-size: fluid(24px, 34px);
+  line-height: 1.3;
+}
+
+.m p {
+  font-size: fluid(20px, 26px);
+  line-height: 1.38;
+}
+
+.l p {
+  font-size: fluid(18px, 22px);
+  line-height: 1.46;
+}
+
+.sig {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem 0.875rem;
-  padding-top: 1.125rem;
-  border-top: 1px solid var(--line);
+  gap: 0.25rem 0.75rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
   font-size: 0.8125rem;
-}
-
-.name {
   font-weight: 600;
-}
+  line-height: 1.6;
 
-.what {
-  color: var(--muted);
-}
-
-.stars {
-  display: flex;
-  gap: 0.2rem;
-  width: 100%;
-  margin-bottom: 0.25rem;
-
-  svg {
-    width: 0.8125rem;
-    height: 0.8125rem;
-    fill: var(--c-brass);
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--c-brass);
   }
+}
+
+// ---------- Nawigacja pod opinią ----------
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.pn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color 0.4s var(--ease);
+
+  @include hover {
+    color: var(--c-brass);
+
+    .icoL {
+      transform: translateX(-4px);
+    }
+
+    .icoR {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.ico {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform 0.5s var(--ease);
+}
+
+// Zatrzymaj / wznów. Pierścień wokół ikony odlicza czas do następnej opinii.
+.toggle {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: var(--fg);
+  transition: color 0.4s var(--ease);
+
+  @include hover {
+    color: var(--c-brass);
+  }
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 1.5;
+  // odliczanie zaczyna się na górze pierścienia
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  stroke: var(--line);
+}
+
+.ringOn {
+  stroke: var(--c-brass);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ring var(--czas, 10s) linear forwards;
+}
+
+@keyframes ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+// pauza (kursor nad księgą, klawiatura, sekcja poza ekranem): odliczanie staje
+// i rusza dalej od tego samego momentu
+.paused .ringOn {
+  animation-play-state: paused;
+}
+
+.state {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;
+}
+
+// ---------- Przejście do wszystkich opinii (pod księgą) ----------
+
+.all {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 2.6vw, 2.5rem);
+}
+
+// ---------- Lista opinii (prawa strona księgi) ----------
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  width: 100%;
+  padding-block: 0.75rem;
+  text-align: left;
+  color: var(--muted);
+  transition: color 0.4s var(--ease);
+
+  @include hover {
+    color: var(--fg);
+  }
+}
+
+.rowOn {
+  color: var(--c-brass);
+
+  @include hover {
+    color: var(--c-brass);
+  }
+
+  .rLead {
+    border-bottom-color: var(--c-brass);
+  }
+}
+
+.rName {
+  flex: none;
+  min-width: 4.6em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.rText {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 350;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// kropki prowadzące do numeru strony
+.rLead {
+  flex: 1 1 1.5rem;
+  min-width: 1.5rem;
+  height: 0;
+  border-bottom: 1px dotted rgb(197 209 188 / 0.5);
+  transform: translateY(-3px);
+}
+
+.rNo {
+  flex: none;
+  min-width: 1.6em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }

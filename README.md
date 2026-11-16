@@ -86,6 +86,7 @@ Cloudflare Pages lub Netlify: polecenie build `npm run build`, katalog publikacj
 - [ ] kwalifikacje i osiągnięcia sportowe
 - [ ] dojazd: czasy dojazdu z Redy, Wejherowa i Gdyni
 - [ ] formy płatności (`src/data/faq.ts`)
+- [ ] adres strony ze wszystkimi opiniami (`linki.wszystkieOpinie` w `src/data/site.ts`) - bez niego przycisk „Zobacz wszystkie opinie” pod księgą nigdzie nie prowadzi
 - [ ] pakiety w `src/data/oferta.ts`: potwierdzić ceny
 - [ ] prawdziwe historie klientów i ocena (patrz ramka na górze)
 - [ ] zdjęcia i wideo do hero — lista ujęć w `ZDJECIA.md`

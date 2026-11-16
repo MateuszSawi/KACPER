@@ -41,6 +41,8 @@ export const site = {
     /** Profil Booksy - tu prowadzi każde „Zarezerwuj” */
     booksy: "https://booksy.com/pl-pl/instant-experiences/widget/252373?instant_experiences_enabled=true",
     opinieGoogle: "https://www.google.com/maps", // [UZUPEŁNIJ: link do opinii Google]
+    /** Przycisk „Zobacz wszystkie opinie” pod księgą - puste = przycisk widać, ale nigdzie nie prowadzi */
+    wszystkieOpinie: "", // [UZUPEŁNIJ: adres strony ze wszystkimi opiniami]
     instagram: "", // [UZUPEŁNIJ] - puste = nie pokazuj
     facebook: "", // [UZUPEŁNIJ]
   },
