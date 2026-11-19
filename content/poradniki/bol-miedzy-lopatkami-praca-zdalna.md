@@ -4,8 +4,8 @@ description: "Piekący punkt między łopatkami po kilku godzinach pracy z domu?
 pubDate: 2026-10-31
 updatedDate: ""
 category: Praca przy biurku
-cover: /images/blog/zdjecie-03.jpg
-coverAlt: ""
+cover: /images/blog/foto-hero.jpg
+coverAlt: Kacper Łapiński pracuje z łopatką klientki leżącej na boku
 draft: false
 ---
 

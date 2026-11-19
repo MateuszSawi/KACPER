@@ -4,8 +4,8 @@ description: "Wstajesz sztywny i obolały, a po godzinie jest lepiej? Jak sprawd
 pubDate: 2026-10-26
 updatedDate: ""
 category: Codzienne nawyki
-cover: /images/blog/zdjecie-01.jpg
-coverAlt: ""
+cover: /images/blog/foto-9.jpg
+coverAlt: Kacper Łapiński pracuje z okolicą obojczyka klienta leżącego na stole
 draft: false
 ---
 

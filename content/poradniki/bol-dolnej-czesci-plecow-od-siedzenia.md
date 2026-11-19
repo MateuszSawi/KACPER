@@ -4,8 +4,8 @@ description: "Dół pleców boli po całym dniu siedzenia? Siedem najczęstszych
 pubDate: 2026-11-03
 updatedDate: ""
 category: Praca przy biurku
-cover: /images/blog/plecy-biurko.jpg
-coverAlt: Terapeuta pracujący dłońmi z plecami osoby leżącej na stole do masażu
+cover: /images/blog/foto-15.jpg
+coverAlt: Kacper Łapiński pracuje z dolną częścią pleców klientki
 draft: false
 ---
 

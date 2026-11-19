@@ -1,8 +1,3 @@
-// Nieco większy odstęp na dole: drugie zdjęcie wystaje poniżej portretu i zjada część oddechu sekcji.
-section.root {
-  padding-bottom: calc(var(--section-y) + clamp(1.5rem, 2.5vw, 2.5rem));
-}
-
 .layout {
   display: grid;
   gap: var(--s-6);
@@ -57,10 +52,6 @@ section.root {
   gap: var(--s-4);
   padding-top: var(--s-4);
   border-top: 1px solid var(--line);
-
-  @include up(sm) {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .label {

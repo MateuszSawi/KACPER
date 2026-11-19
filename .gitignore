@@ -46,3 +46,6 @@ next-env.d.ts
 # lekkie wersje zdjec poradnikow - powstaja przy kazdym buildzie (scripts/obrazy-blog.mjs)
 /public/images/opt/blog/
 /src/data/obrazy-blog.json
+
+# surowe zdjecia dyplomow (PESEL, data urodzenia) - zrodla dla npm run certyfikaty, tylko lokalnie
+/certyfikaty-zrodla/

@@ -4,8 +4,8 @@ description: "Budzisz się z obolałą szczęką albo łapiesz się na zaciskani
 pubDate: 2026-10-25
 updatedDate: ""
 category: Codzienne nawyki
-cover: /images/blog/plecy-biurko.jpg
-coverAlt: Terapeuta pracujący dłońmi z plecami osoby leżącej na stole do masażu
+cover: /images/blog/foto-16.jpg
+coverAlt: Kacper Łapiński pracuje z karkiem klienta
 draft: false
 ---
 

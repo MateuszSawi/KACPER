@@ -12,6 +12,7 @@ export type UslugaId =
   | "tkanki-glebokie"
   | "plecy"
   | "sportowy"
+  | "leczniczy"
   | "kark";
 
 export type Usluga = {
@@ -34,7 +35,7 @@ export const uslugi: Record<UslugaId, Usluga> = {
   powieziowy: {
     id: "powieziowy",
     nazwa: "Masaż powięziowy",
-    opis: "Powolna praca z powięzią - dla ciała, które jest „sklejone” i sztywne.",
+    opis: "Dla osób, które czują sztywność, ograniczenia w ruchu lub przewlekłe napięcie w wielu partiach ciała.",
   },
   "tkanki-glebokie": {
     id: "tkanki-glebokie",
@@ -44,17 +45,22 @@ export const uslugi: Record<UslugaId, Usluga> = {
   plecy: {
     id: "plecy",
     nazwa: "Masaż pleców i kręgosłupa",
-    opis: "Od karku po lędźwia - dla osób, które większość dnia spędzają na siedząco.",
+    opis: "Od karku po lędźwie - dla osób z bólem pleców wynikającym z siedzącego trybu życia, stresu lub przeciążenia.",
   },
   sportowy: {
     id: "sportowy",
     nazwa: "Masaż sportowy",
-    opis: "Regeneracja i przygotowanie tkanek dla osób trenujących regularnie.",
+    opis: "Regeneracja i przygotowanie tkanek do wysiłku fizycznego.",
+  },
+  leczniczy: {
+    id: "leczniczy",
+    nazwa: "Masaż leczniczy",
+    opis: "Dla osób z bólem pleców, napięciem po pracy lub po urazach, które potrzebują realnej poprawy, a nie chwilowej ulgi.",
   },
   kark: {
     id: "kark",
     nazwa: "Masaż karku i szyi",
-    opis: "Dla sztywnego karku, ciężkiej głowy i barków podciągniętych pod uszy.",
+    opis: "Dla osób z bólami głowy, uczuciem sztywnego karku i barków podciągniętych pod uszy.",
   },
 };
 

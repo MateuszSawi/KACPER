@@ -42,7 +42,7 @@ export function Hero() {
 
       <div className={clsx("container", styles.inner)}>
         <p className={clsx(styles.kicker, styles.fade)} style={{ "--d": "0.2s" } as React.CSSProperties}>
-          Terapia manualna · Rumia
+          Gabinet Terapii Manualnej · Rumia
         </p>
 
         <h1 className={clsx("display", styles.title)}>

@@ -4,8 +4,8 @@ description: "Kark sztywnieje po kilku godzinach z laptopem? Dlaczego tak się d
 pubDate: 2026-11-02
 updatedDate: ""
 category: Kark i barki
-cover: /images/blog/zdjecie-02.jpg
-coverAlt: ""
+cover: /images/blog/foto-16.jpg
+coverAlt: Kacper Łapiński pracuje z karkiem klienta
 draft: false
 ---
 

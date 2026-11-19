@@ -4,8 +4,8 @@ description: "Pięć ustawień krzesła, biurka i monitora, które poprawisz w k
 pubDate: 2026-10-24
 updatedDate: ""
 category: Praca przy biurku
-cover: /images/blog/zdjecie-02.jpg
-coverAlt: ""
+cover: /images/blog/foto-21.jpg
+coverAlt: Kacper Łapiński przy biurku w gabinecie
 draft: false
 ---
 

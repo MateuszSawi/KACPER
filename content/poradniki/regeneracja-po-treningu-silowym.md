@@ -4,8 +4,8 @@ description: "Sen, jedzenie i rozsądny plan robią więcej niż każdy gadżet.
 pubDate: 2026-10-20
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-04.jpg
-coverAlt: ""
+cover: /images/blog/foto-17.jpg
+coverAlt: Kacper Łapiński pomaga klientce w rolowaniu na macie
 draft: false
 ---
 

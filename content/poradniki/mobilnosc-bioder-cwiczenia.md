@@ -4,8 +4,8 @@ description: "Sztywne biodra ograniczają przysiad i obciążają dół pleców.
 pubDate: 2026-10-15
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-02.jpg
-coverAlt: ""
+cover: /images/blog/foto-18.jpg
+coverAlt: Kacper Łapiński prowadzi klientkę przez ćwiczenie na macie
 draft: false
 ---
 

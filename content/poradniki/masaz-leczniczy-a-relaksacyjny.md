@@ -4,8 +4,8 @@ description: "Masaż relaksacyjny wycisza, a praca nad napięciem ma konkretny c
 pubDate: 2026-11-06
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-05.jpg
-coverAlt: ""
+cover: /images/blog/foto-4.jpg
+coverAlt: Kacper Łapiński pracuje z barkiem klientki leżącej na boku
 draft: false
 ---
 

@@ -58,19 +58,13 @@ export const site = {
 
   terapeutaInfo: {
     kwalifikacje: [
-      "[UZUPEŁNIJ: kurs / dyplom 1]",
-      "[UZUPEŁNIJ: kurs / dyplom 2]",
-      "[UZUPEŁNIJ: kurs / dyplom 3]",
-    ],
-    osiagniecia: [
-      "[UZUPEŁNIJ: tytuł w trójboju siłowym, rok]",
-      "[UZUPEŁNIJ: rekord, rok]",
-      "[UZUPEŁNIJ: start / medal, rok]",
+      "Technik masażysta (NPWZ 2100200559)",
+      "Naturoterapeuta",
     ],
   },
 
   /** Badge w hero - bez liczby opinii, żeby nie trzeba było go aktualizować */
-  ocena: { wartosc: "5,0", zrodlo: "ocena klientów w Booksy", przyklad: true },
+  ocena: { wartosc: "5,0", zrodlo: "ocena klientów w Booksy i Google", przyklad: true },
 
   hero: {
     /** Zdjęcie w tle - slug z scripts/obrazy.mjs ("" = nastrojowy placeholder) */

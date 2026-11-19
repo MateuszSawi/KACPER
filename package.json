@@ -9,7 +9,8 @@
     "lint": "eslint",
     "obrazy": "node scripts/obrazy.mjs",
     "obrazy:blog": "node scripts/obrazy-blog.mjs",
-    "wideo": "node scripts/wideo.mjs"
+    "wideo": "node scripts/wideo.mjs",
+    "certyfikaty": "node scripts/certyfikaty.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

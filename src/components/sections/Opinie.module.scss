@@ -344,10 +344,6 @@ $ksiega-max: 77.5rem;
   @include hover {
     color: var(--c-brass);
   }
-
-  .rLead {
-    border-bottom-color: var(--c-brass);
-  }
 }
 
 .rName {
@@ -359,7 +355,7 @@ $ksiega-max: 77.5rem;
 }
 
 .rText {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
   font-family: var(--font-display);
@@ -368,23 +364,4 @@ $ksiega-max: 77.5rem;
   line-height: 1.4;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-// kropki prowadzące do numeru strony
-.rLead {
-  flex: 1 1 1.5rem;
-  min-width: 1.5rem;
-  height: 0;
-  border-bottom: 1px dotted rgb(197 209 188 / 0.5);
-  transform: translateY(-3px);
-}
-
-.rNo {
-  flex: none;
-  min-width: 1.6em;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1.5;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
 }

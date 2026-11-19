@@ -1,0 +1,164 @@
+[
+  {
+    "id": "dyplom-technik-masazysta",
+    "tytul": "Dyplom zawodowy: technik masażysta",
+    "wystawca": "2024",
+    "w": 1236,
+    "h": 1800,
+    "mw": 165,
+    "mh": 240
+  },
+  {
+    "id": "dyplom-czeladniczy-naturopata",
+    "tytul": "Dyplom czeladniczy: naturopata",
+    "wystawca": "Lubelska Izba Rzemieślnicza, 2024",
+    "w": 1800,
+    "h": 1329,
+    "mw": 325,
+    "mh": 240
+  },
+  {
+    "id": "swiadectwo-czeladnicze-naturopata",
+    "tytul": "Świadectwo czeladnicze: naturopata",
+    "wystawca": "Lubelska Izba Rzemieślnicza, 2024",
+    "w": 1152,
+    "h": 1800,
+    "mw": 154,
+    "mh": 240
+  },
+  {
+    "id": "cech-naturopatow",
+    "tytul": "Członkostwo w Lubelskim Cechu Naturopatów, Radiestetów i Bioenergoterapeutów",
+    "wystawca": "2025",
+    "w": 1248,
+    "h": 1800,
+    "mw": 166,
+    "mh": 240
+  },
+  {
+    "id": "masaz-tkanek-glebokich",
+    "tytul": "Masaż tkanek głębokich w ujęciu klinicznym",
+    "wystawca": "Neuro Projekt, 2024",
+    "w": 1213,
+    "h": 1800,
+    "mw": 162,
+    "mh": 240
+  },
+  {
+    "id": "terapia-manualna-aun",
+    "tytul": "Terapia manualna autonomicznego układu nerwowego",
+    "wystawca": "Neuro Projekt, 2024",
+    "w": 1221,
+    "h": 1800,
+    "mw": 163,
+    "mh": 240
+  },
+  {
+    "id": "terapia-wisceralna",
+    "tytul": "Terapia wisceralna",
+    "wystawca": "Neuro Projekt, 2024",
+    "w": 1223,
+    "h": 1800,
+    "mw": 163,
+    "mh": 240
+  },
+  {
+    "id": "pinoterapia",
+    "tytul": "Pinoterapia",
+    "wystawca": "FRSc by dr Składowski, 2024",
+    "w": 1280,
+    "h": 1800,
+    "mw": 170,
+    "mh": 240
+  },
+  {
+    "id": "gral-1",
+    "tytul": "Medycyna manualna - GRAL I",
+    "wystawca": "Bielecki Szkolenia",
+    "w": 1800,
+    "h": 1337,
+    "mw": 323,
+    "mh": 240
+  },
+  {
+    "id": "gral-2",
+    "tytul": "Terapie odruchowe w holistycznym usprawnianiu człowieka - GRAL II",
+    "wystawca": "Bielecki Szkolenia",
+    "w": 1800,
+    "h": 1381,
+    "mw": 313,
+    "mh": 240
+  },
+  {
+    "id": "gral-3",
+    "tytul": "Komplementarne metody terapii - GRAL III",
+    "wystawca": "Bielecki Szkolenia",
+    "w": 1800,
+    "h": 1301,
+    "mw": 332,
+    "mh": 240
+  },
+  {
+    "id": "masaz-medyczny",
+    "tytul": "Masaż medyczny",
+    "wystawca": "TEB Edukacja",
+    "w": 1800,
+    "h": 1303,
+    "mw": 331,
+    "mh": 240
+  },
+  {
+    "id": "masaz-sportowy",
+    "tytul": "Masaż sportowy",
+    "wystawca": "TEB Edukacja",
+    "w": 1800,
+    "h": 1286,
+    "mw": 336,
+    "mh": 240
+  },
+  {
+    "id": "masaz-profilaktyczny",
+    "tytul": "Masaż profilaktyczny",
+    "wystawca": "TEB Edukacja",
+    "w": 1800,
+    "h": 1277,
+    "mw": 338,
+    "mh": 240
+  },
+  {
+    "id": "masaz-kosmetyczny",
+    "tytul": "Masaż kosmetyczny",
+    "wystawca": "TEB Edukacja",
+    "w": 1800,
+    "h": 1264,
+    "mw": 342,
+    "mh": 240
+  },
+  {
+    "id": "podstawy-fizjoterapii",
+    "tytul": "Podstawy fizjoterapii",
+    "wystawca": "TEB Edukacja",
+    "w": 1800,
+    "h": 1295,
+    "mw": 334,
+    "mh": 240
+  },
+  {
+    "id": "kettlebell",
+    "tytul": "Trening kettlebell „300 Maxwella”",
+    "wystawca": "Polskie Stowarzyszenie Kettlebell i Fitness",
+    "w": 1800,
+    "h": 1249,
+    "mw": 346,
+    "mh": 240
+  },
+  {
+    "id": "bulgarian-bag",
+    "tytul": "Bulgarian Bag",
+    "wystawca": "Suples Training Systems, 2025",
+    "w": 1800,
+    "h": 1216,
+    "mw": 355,
+    "mh": 240
+  }
+]

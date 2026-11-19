@@ -4,8 +4,8 @@ description: Sztywne plecy po ośmiu godzinach siedzenia to nie wyrok. Pięć pr
 pubDate: 2026-11-03
 updatedDate: ""
 category: Praca przy biurku
-cover: /images/blog/plecy-biurko.jpg
-coverAlt: Terapeuta pracujący dłońmi z plecami osoby leżącej na stole do masażu
+cover: /images/blog/foto-hero.jpg
+coverAlt: Kacper Łapiński pracuje z łopatką klientki leżącej na boku
 draft: false
 ---
 

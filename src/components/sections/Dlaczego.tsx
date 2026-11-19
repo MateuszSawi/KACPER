@@ -53,8 +53,8 @@ export function Dlaczego() {
         <div className={styles.photos}>
           <div data-reveal>
             <Photo
-              src="kolano"
-              temat="Praca manualna z okolicą kolana"
+              src="dlaczego-1"
+              temat="Kacper Łapiński rozciąga ramię klientki leżącej na boku na stole terapeutycznym"
               kadr="zbliżenie dłoni"
               ratio="4 / 5"
               sizes="(min-width: 768px) 30vw, 50vw"
@@ -62,8 +62,8 @@ export function Dlaczego() {
           </div>
           <div data-reveal>
             <Photo
-              src="bark"
-              temat="Praca manualna z barkiem"
+              src="dlaczego-2"
+              temat="Kacper Łapiński pracuje z karkiem klienta siedzącego na stole"
               kadr="zbliżenie dłoni"
               ratio="4 / 5"
               sizes="(min-width: 768px) 30vw, 50vw"
@@ -71,8 +71,8 @@ export function Dlaczego() {
           </div>
           <div data-reveal>
             <Photo
-              src="przedramie"
-              temat="Praca manualna z przedramieniem"
+              src="dlaczego-3"
+              temat="Kacper Łapiński prowadzi klientkę przez ćwiczenie na macie"
               kadr="zbliżenie dłoni"
               ratio="4 / 5"
               sizes="(min-width: 768px) 30vw, 50vw"

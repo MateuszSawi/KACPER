@@ -4,8 +4,8 @@ description: "Ból pośladka schodzący w nogę nie zawsze oznacza to samo. Czym
 pubDate: 2026-10-27
 updatedDate: ""
 category: Plecy i kręgosłup
-cover: /images/blog/zdjecie-06.jpg
-coverAlt: ""
+cover: /images/blog/foto-12.jpg
+coverAlt: Kacper Łapiński pracuje z nogą klientki leżącej na stole
 draft: false
 ---
 

@@ -10,14 +10,14 @@ const OUT = "public/images/opt";
 
 /** slug -> plik źródłowy (względem public/images) */
 const zrodla = {
-  hero: "test/hero.jpg",
-  sesja: "test/pexels-gustavo-fring-5888091.jpg",
+  hero: "images/hero.jpg",
+  sesja: "images/6.jpg",
   portret: "626408662_18141166651463135_3812015191030352293_n.jpg",
   pomost: "366587934_2514081082101405_3687324628428713161_n.jpg",
-  kolano: "test/pexels-funkcines-terapijos-centras-927573878-20860607.jpg",
-  przedramie: "test/pexels-rainereckphotography-5573587.jpg",
-  bark: "test/pexels-ryutaro-5473182.jpg",
-  final: "test/pexels-yankrukov-5794021.jpg",
+  "dlaczego-1": "images/23.jpg",
+  "dlaczego-2": "images/1.jpg",
+  "dlaczego-3": "images/18.jpg",
+  final: "images/5.jpg",
 };
 
 const SZEROKOSCI = { hero: [640, 1024, 1600, 2400], final: [640, 1024, 1600, 2400] };

@@ -4,8 +4,8 @@ description: "Po kilkudziesięciu kilometrach na rowerze bolą plecy, kark i bio
 pubDate: 2026-10-16
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/plecy-biurko.jpg
-coverAlt: Terapeuta pracujący dłońmi z plecami osoby leżącej na stole do masażu
+cover: /images/blog/foto-12.jpg
+coverAlt: Kacper Łapiński pracuje z nogą klientki leżącej na stole
 draft: false
 ---
 

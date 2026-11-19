@@ -4,8 +4,8 @@ description: Barki podciągnięte pod uszy i twardy kark to częsty powód wizyt
 pubDate: 2026-11-07
 updatedDate: ""
 category: Kark i barki
-cover: /images/blog/napiete-barki.jpg
-coverAlt: Dłonie terapeuty na barku osoby leżącej na stole do masażu
+cover: /images/blog/foto-5.jpg
+coverAlt: Kacper Łapiński z uśmiechniętym klientem, dłonie na jego barkach
 draft: false
 ---
 

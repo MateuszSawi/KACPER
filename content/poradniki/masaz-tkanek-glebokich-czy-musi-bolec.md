@@ -4,8 +4,8 @@ description: "Masaż tkanek głębokich nie polega na jak najmocniejszym nacisku
 pubDate: 2026-11-09
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-03.jpg
-coverAlt: ""
+cover: /images/blog/foto-15.jpg
+coverAlt: Kacper Łapiński pracuje z dolną częścią pleców klientki
 draft: false
 ---
 

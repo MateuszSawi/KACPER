@@ -19,17 +19,6 @@ const sluchajRuchu = (zmiana: () => void) => {
  */
 const czas = (tresc: string) => Math.max(8, Math.round(tresc.split(/\s+/).length * 0.3 + 5));
 
-/** Początek opinii do spisu: pełne słowa, do ok. 30 znaków */
-const zajawka = (tresc: string) => {
-  let out = "";
-  for (const slowo of tresc.split(" ")) {
-    const dalej = out ? `${out} ${slowo}` : slowo;
-    if (dalej.length > 30) break;
-    out = dalej;
-  }
-  return `${out.replace(/[\s.,!:-]+$/, "")}…`;
-};
-
 /** Krótka opinia dostaje większe pismo, długa mniejsze - strona jest zawsze podobnie wypełniona */
 const rozmiar = (tresc: string) => (tresc.length < 140 ? styles.s : tresc.length < 240 ? styles.m : styles.l);
 
@@ -173,9 +162,8 @@ export function Ksiega({ opinie }: { opinie: Opinia[] }) {
                 onClick={() => idz(k)}
               >
                 <span className={styles.rName}>{o.imie || "Klient"}</span>
-                <span className={styles.rText}>{zajawka(o.tresc)}</span>
-                <span className={styles.rLead} aria-hidden="true" />
-                <span className={styles.rNo}>{k + 1}</span>
+                {/* całe zdanie w jednej linii, ucięte wielokropkiem na końcu dostępnego miejsca */}
+                <span className={styles.rText}>{o.tresc}</span>
               </button>
             </li>
           ))}

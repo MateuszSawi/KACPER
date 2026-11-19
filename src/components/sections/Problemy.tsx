@@ -2,13 +2,13 @@ import styles from "./Problemy.module.scss";
 
 // Opisujemy sytuację klienta, nie nazwy schorzeń.
 const zdania = [
-  "Plecy bolą po całym dniu siedzenia.",
-  "Rano wstajesz sztywny i obolały.",
+  "Plecy bolą po całym dniu siedzenia lub stania.",
+  "Rano wstają sztywni i obolali.",
   "Kark i barki są stale napięte.",
   "Ból głowy wraca kilka razy w tygodniu.",
-  "Ból odbiera Ci trening i ulubiony sport.",
-  "Boisz się, że z wiekiem będzie tylko gorzej.",
-  "Nie chcesz, żeby ból decydował, co możesz robić.",
+  "Ból odbiera im trening i ulubiony sport.",
+  "Boją się, że z wiekiem będzie tylko gorzej.",
+  "Nie chcą, żeby ból decydował, co mogą robić.",
 ];
 
 /**

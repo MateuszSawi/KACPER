@@ -4,8 +4,8 @@ description: "Mieszkasz w Redzie i szukasz terapii manualnej? Gabinet w Rumi prz
 pubDate: 2026-11-04
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-01.jpg
-coverAlt: ""
+cover: /images/blog/foto-8.jpg
+coverAlt: Kacper Łapiński ocenia bark klienta
 draft: false
 ---
 

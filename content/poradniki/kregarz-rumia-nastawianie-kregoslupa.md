@@ -4,8 +4,8 @@ description: "Szukasz kręgarza w Rumi? Czym naprawdę jest „strzelanie” w k
 pubDate: 2026-11-10
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/napiete-barki.jpg
-coverAlt: Dłonie terapeuty na barku osoby leżącej na stole do masażu
+cover: /images/blog/foto-7.jpg
+coverAlt: Kacper Łapiński rozmawia z klientem przy modelu kręgosłupa
 draft: false
 ---
 

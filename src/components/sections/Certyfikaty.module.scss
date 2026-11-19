@@ -1,0 +1,414 @@
+// Cały blok stoi pod dwiema kolumnami sekcji „O mnie”, na pełną szerokość.
+.root {
+  min-width: 0;
+  margin-top: var(--block-gap);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+
+  // małe zdjęcie w lewej kolumnie wystaje poniżej portretu - blok nie może na nie wjechać
+  @include up(lg) {
+    margin-top: clamp(5rem, 9vw, 9rem);
+  }
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-brass);
+}
+
+.hint {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+// ---------- rząd miniatur ----------
+
+.strip {
+  --h: 5.25rem;
+
+  position: relative;
+
+  @include up(sm) {
+    --h: 6.25rem;
+  }
+
+  @include up(lg) {
+    --h: 7.5rem;
+  }
+
+  // Brzeg, za którym są kolejne dokumenty: rozmycie + wygaszenie do koloru tła sekcji.
+  // Pojawia się tylko po tej stronie, w którą da się jeszcze przesunąć.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: clamp(3rem, 9vw, 7rem);
+    opacity: 0;
+    backdrop-filter: blur(3px);
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg) 12%, transparent);
+    mask-image: linear-gradient(90deg, #000 35%, transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--bg) 12%, transparent);
+    mask-image: linear-gradient(270deg, #000 35%, transparent);
+  }
+}
+
+.maLewo::before,
+.maPrawo::after {
+  opacity: 1;
+}
+
+// Jeden rząd: wspólna wysokość, szerokość z proporcji dokumentu. Przewijany w poziomie
+// palcem, gładzikiem i przeciągnięciem myszą; bez paska przewijania.
+.row {
+  display: flex;
+  gap: 0.625rem;
+  padding: 2px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include up(lg) {
+    gap: 0.75rem;
+  }
+
+  li {
+    flex: none;
+  }
+}
+
+// strzałki na wygaszonych brzegach - widoczne tylko wtedy, gdy w tę stronę jest co przesuwać
+.move {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  // na telefonie mniejsze, żeby nie zasłaniały miniatur - tam i tak przesuwa się palcem
+  width: 2.125rem;
+  height: 2.125rem;
+  margin-top: -1.0625rem;
+  border: 1px solid rgb(197 209 188 / 0.45);
+  border-radius: 50%;
+  background: var(--c-deep);
+  color: var(--c-paper);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease);
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+
+  @include hover {
+    border-color: var(--c-brass);
+    color: var(--c-brass);
+  }
+}
+
+.move {
+  @include up(sm) {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+  }
+}
+
+.moveL {
+  left: 0.25rem;
+}
+
+.moveR {
+  right: 0.25rem;
+}
+
+.maLewo .moveL,
+.maPrawo .moveR {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.thumb {
+  // ukryty podpis dla czytników ekranu jest pozycjonowany absolutnie - musi zostać wewnątrz
+  // miniatury, inaczej wychodzi poza przewijany rząd i poszerza całą stronę
+  position: relative;
+  display: block;
+  height: var(--h);
+  overflow: hidden;
+  border-radius: var(--radius);
+  outline: 1px solid var(--line);
+  background: var(--c-paper);
+  cursor: zoom-in;
+  user-select: none;
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+    opacity: 0.88;
+    transition: opacity 0.4s var(--ease);
+  }
+
+  @include hover {
+    outline-color: var(--c-brass);
+
+    img {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--c-brass);
+
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+// ---------- okno z karuzelą ----------
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: #121b15;
+  color: var(--c-paper);
+
+  &[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    animation: wejscie 0.35s var(--ease);
+  }
+
+  &::backdrop {
+    background: transparent;
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem clamp(1rem, 3vw, 2rem);
+}
+
+.count {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  color: var(--c-mist);
+  font-variant-numeric: tabular-nums;
+}
+
+.close,
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(197 209 188 / 0.35);
+  border-radius: 50%;
+  color: var(--c-paper);
+  transition:
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease);
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+
+  @include hover {
+    border-color: var(--c-brass);
+    color: var(--c-brass);
+  }
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  touch-action: pan-y;
+
+  // na szerokich ekranach strzałki stoją po bokach dokumentu
+  @include up(md) {
+    padding-inline: 5.5rem;
+  }
+}
+
+.doc {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.45);
+  animation: wejscie 0.45s var(--ease);
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 0.875rem;
+  z-index: 1;
+  background: rgb(18 27 21 / 0.7);
+
+  @include up(md) {
+    top: 50%;
+    bottom: auto;
+    margin-top: -1.375rem;
+  }
+}
+
+.prev {
+  left: clamp(1rem, 3vw, 2rem);
+}
+
+.next {
+  right: clamp(1rem, 3vw, 2rem);
+}
+
+.foot {
+  display: grid;
+  gap: 0.875rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+}
+
+.caption {
+  display: grid;
+  gap: 0.125rem;
+  // na telefonie strzałki leżą w rogach stopki - podpis mieści się między nimi
+  min-height: 2.75rem;
+  align-content: center;
+  padding-inline: 3.5rem;
+  text-align: center;
+
+  strong {
+    font-family: var(--font-display);
+    font-size: fluid(16px, 20px);
+    font-weight: 400;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  span {
+    font-size: 0.8125rem;
+    color: var(--c-mist);
+  }
+
+  @include up(md) {
+    min-height: 0;
+    padding-inline: 0;
+  }
+}
+
+// pasek miniatur - skok do wybranego dokumentu; tylko tam, gdzie jest na niego miejsce
+.rail {
+  display: none;
+
+  @media (min-width: 768px) and (min-height: 640px) {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.railItem {
+  position: relative;
+  flex: none;
+  height: 3.25rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--c-paper);
+  opacity: 0.45;
+  transition: opacity 0.4s var(--ease);
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+  }
+
+  @include hover {
+    opacity: 0.85;
+  }
+}
+
+.railOn {
+  outline: 2px solid var(--c-brass);
+  opacity: 1;
+
+  @include hover {
+    opacity: 1;
+  }
+}
+
+@keyframes wejscie {
+  from {
+    opacity: 0;
+  }
+}
+
+@include reduced-motion {
+  .dialog[open],
+  .doc {
+    animation: none;
+  }
+}

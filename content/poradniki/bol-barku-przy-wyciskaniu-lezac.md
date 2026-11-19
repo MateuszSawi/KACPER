@@ -4,8 +4,8 @@ description: "Przód barku boli przy wyciskaniu sztangi leżąc? Najczęstsze b�
 pubDate: 2026-10-21
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/przedramiona.jpg
-coverAlt: Terapeuta rozluźniający przedramię sportowca
+cover: /images/blog/foto-10.jpg
+coverAlt: Kacper Łapiński sprawdza uniesienie ręki siedzącego klienta
 draft: false
 ---
 

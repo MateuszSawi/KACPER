@@ -4,8 +4,8 @@ description: "Bark boli, gdy sięgasz na górną półkę albo zakładasz kurtk�
 pubDate: 2026-10-28
 updatedDate: ""
 category: Kark i barki
-cover: /images/blog/zdjecie-05.jpg
-coverAlt: ""
+cover: /images/blog/foto-10.jpg
+coverAlt: Kacper Łapiński sprawdza uniesienie ręki siedzącego klienta
 draft: false
 ---
 

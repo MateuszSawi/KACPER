@@ -106,3 +106,10 @@ Gotowa strona główna. Następny etap: podstrony usług i problemów, blog, pol
 - Zdjęcia: CMS wgrywa je do `public/images/blog/`. Przed każdym `npm run dev` i `npm run build` skrypt `scripts/obrazy-blog.mjs` robi z nich wersje AVIF/WebP (480-1600 px) w `public/images/opt/blog/` - ten katalog i `src/data/obrazy-blog.json` nie są commitowane.
 - Po buildzie `scripts/po-buildzie.mjs` kopiuje pliki wstępnego ładowania podstron pod nazwy, o które prosi przeglądarka (inaczej zwykły hosting plików zwraca dla nich 404).
 - Publikacja z panelu = commit w repozytorium. Hosting musi sam przebudowywać stronę po każdym commicie (`npm run build`, katalog `out`).
+
+## Dyplomy i certyfikaty
+
+- Surowe zdjęcia leżą w `certyfikaty-zrodla/` - poza `public/` i poza repozytorium, bo zawierają PESEL i datę urodzenia.
+- `npm run certyfikaty` (`scripts/certyfikaty.mjs`) obraca je, zamazuje dane osobowe (pola `zamaz`), obcina tło i zapisuje pliki WebP w `public/images/certyfikaty/` oraz listę `src/data/certyfikaty.json`.
+- Tytuły, wystawcy i kolejność są na liście w skrypcie. Nowy certyfikat = zdjęcie w `certyfikaty-zrodla/`, wpis na liście, ponowne uruchomienie skryptu.
+- Na stronie pokazuje je `src/components/sections/Certyfikaty.tsx` (rząd miniatur w „O mnie” i okno z karuzelą).

@@ -4,8 +4,8 @@ description: "Po kilku godzinach za kierownicą plecy są sztywne i obolałe? Ja
 pubDate: 2026-10-30
 updatedDate: ""
 category: Plecy i kręgosłup
-cover: /images/blog/przedramiona.jpg
-coverAlt: Terapeuta rozluźniający przedramię sportowca
+cover: /images/blog/foto-4.jpg
+coverAlt: Kacper Łapiński pracuje z barkiem klientki leżącej na boku
 draft: false
 ---
 

@@ -4,8 +4,8 @@ description: "Głęboki masaż dzień przed startem to częsty błąd. Kiedy zap
 pubDate: 2026-10-19
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-05.jpg
-coverAlt: ""
+cover: /images/blog/foto-19.jpg
+coverAlt: Kacper Łapiński siłuje się na rękę z klientem
 draft: false
 ---
 

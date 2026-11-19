@@ -4,8 +4,8 @@ description: "Lista sytuacji, w których masaż i praca manualna muszą poczeka�
 pubDate: 2026-11-07
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-04.jpg
-coverAlt: ""
+cover: /images/blog/foto-11.jpg
+coverAlt: Kacper Łapiński unosi ramię klienta siedzącego na stole
 draft: false
 ---
 

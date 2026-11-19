@@ -4,8 +4,8 @@ description: "Leśne podbiegi i zbiegi wokół Rumi dają łydkom i kolanom wię
 pubDate: 2026-10-18
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-06.jpg
-coverAlt: ""
+cover: /images/blog/foto-18.jpg
+coverAlt: Kacper Łapiński prowadzi klientkę przez ćwiczenie na macie
 draft: false
 ---
 

@@ -4,8 +4,8 @@ description: "Jedna wizyta czy dziesięć? Od czego zależy liczba sesji terapii
 pubDate: 2026-11-08
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/przedramiona.jpg
-coverAlt: Terapeuta rozluźniający przedramię sportowca
+cover: /images/blog/foto-21.jpg
+coverAlt: Kacper Łapiński przy biurku w gabinecie
 draft: false
 ---
 

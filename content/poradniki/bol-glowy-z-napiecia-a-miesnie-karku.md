@@ -4,8 +4,8 @@ description: "Ból głowy jak ciasna opaska często idzie w parze z twardym kark
 pubDate: 2026-11-01
 updatedDate: ""
 category: Kark i barki
-cover: /images/blog/napiete-barki.jpg
-coverAlt: Dłonie terapeuty na barku osoby leżącej na stole do masażu
+cover: /images/blog/foto-9.jpg
+coverAlt: Kacper Łapiński pracuje z okolicą obojczyka klienta leżącego na stole
 draft: false
 ---
 

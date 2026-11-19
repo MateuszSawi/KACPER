@@ -4,8 +4,8 @@ description: "Budzisz się ze zdrętwiałą dłonią? Kiedy winna jest pozycja s
 pubDate: 2026-10-29
 updatedDate: ""
 category: Codzienne nawyki
-cover: /images/blog/zdjecie-04.jpg
-coverAlt: ""
+cover: /images/blog/foto-20.jpg
+coverAlt: Kacper Łapiński pracuje z ramieniem klientki leżącej na macie
 draft: false
 ---
 

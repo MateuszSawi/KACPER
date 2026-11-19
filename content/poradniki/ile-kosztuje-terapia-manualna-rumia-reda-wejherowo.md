@@ -4,7 +4,8 @@ description: Ile zapłacisz za godzinę terapii manualnej w Rumi i okolicy, od
   czego zależy cena i kiedy pakiet wizyt faktycznie się opłaca.
 pubDate: 2026-11-13
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-01.jpg
+cover: /images/blog/foto-22.jpg
+coverAlt: Kacper Łapiński w gabinecie
 draft: false
 cta: Napięcie wraca mimo ćwiczeń? Popracujmy nad nim razem.
 ---

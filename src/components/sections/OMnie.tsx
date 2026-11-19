@@ -1,12 +1,13 @@
 import { Photo } from "@/components/ui/Photo";
 import { site } from "@/data/site";
+import { Certyfikaty } from "./Certyfikaty";
 import styles from "./OMnie.module.scss";
 
 export function OMnie() {
-  const { kwalifikacje, osiagniecia } = site.terapeutaInfo;
+  const { kwalifikacje } = site.terapeutaInfo;
 
   return (
-    <section id="o-mnie" className={`section ${styles.root}`} data-theme="green" aria-labelledby="o-mnie-tytul">
+    <section id="o-mnie" className="section" data-theme="green" aria-labelledby="o-mnie-tytul">
       <div className="container">
         <div className={styles.layout}>
           <div className={styles.media}>
@@ -37,25 +38,18 @@ export function OMnie() {
 
             <div className={styles.body} data-reveal>
               <p>
-                Nazywam się {site.terapeuta}. Od lat startuję w trójboju siłowym - w sporcie, w którym kręgosłup, biodra
-                i barki pracują na granicy swoich możliwości. Wiem, jak zachowuje się ciało przeciążone, bo sam je
-                przeciążałem, regenerowałem i uczyłem się go słuchać.
+                Nazywam się {site.terapeuta}. Regularnie trenuję na siłowni, a wcześniej przez lata rywalizowałem
+                w trójboju siłowym i przygotowywałem się do zawodów ninja. To dyscypliny, w których kręgosłup, biodra
+                i barki pracują na granicy swoich możliwości.
               </p>
               <p>
-                Tę samą uważność przenoszę do gabinetu. Niezależnie od tego, czy dźwigasz sztangę, czy odpowiedzialność
-                za firmę - napięcie odkłada się w tych samych miejscach.
+                Wiem, jak zachowuje się ciało przeciążone, bo sam je przeciążałem, regenerowałem i uczyłem się go
+                słuchać. Tę samą uważność przenoszę do gabinetu. Niezależnie od tego, czy dźwigasz ciężary na treningu,
+                czy odpowiedzialność za firmę i codzienny stres - napięcie odkłada się w tych samych miejscach.
               </p>
             </div>
 
             <div className={styles.lists}>
-              <div data-reveal>
-                <h3 className={styles.label}>Osiągnięcia sportowe</h3>
-                <ul className={styles.list}>
-                  {osiagniecia.map((o) => (
-                    <li key={o}>{o}</li>
-                  ))}
-                </ul>
-              </div>
               <div data-reveal>
                 <h3 className={styles.label}>Kwalifikacje</h3>
                 <ul className={styles.list}>
@@ -67,6 +61,8 @@ export function OMnie() {
             </div>
           </div>
         </div>
+
+        <Certyfikaty />
       </div>
     </section>
   );

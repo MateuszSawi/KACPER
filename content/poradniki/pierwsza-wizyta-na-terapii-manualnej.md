@@ -4,8 +4,8 @@ description: "Co się dzieje podczas pierwszej godziny w gabinecie terapii manua
 pubDate: 2026-11-11
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-02.jpg
-coverAlt: ""
+cover: /images/blog/foto-14.jpg
+coverAlt: Kacper Łapiński rozmawia z klientką przed sesją
 draft: false
 ---
 

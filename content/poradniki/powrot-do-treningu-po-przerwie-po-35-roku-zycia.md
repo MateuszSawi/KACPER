@@ -4,8 +4,8 @@ description: "Wracasz na siłownię albo do biegania po latach przerwy? Jak zacz
 pubDate: 2026-10-17
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-01.jpg
-coverAlt: ""
+cover: /images/blog/foto-13.jpg
+coverAlt: Kacper Łapiński z klientką ćwiczącą z kettlebellem
 draft: false
 ---
 

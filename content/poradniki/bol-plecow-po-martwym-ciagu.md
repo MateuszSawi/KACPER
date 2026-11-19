@@ -4,8 +4,8 @@ description: "Plecy bolą po martwym ciągu? Jak odróżnić zwykłe zmęczenie 
 pubDate: 2026-10-22
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/zdjecie-03.jpg
-coverAlt: ""
+cover: /images/blog/foto-13.jpg
+coverAlt: Kacper Łapiński z klientką ćwiczącą z kettlebellem
 draft: false
 ---
 

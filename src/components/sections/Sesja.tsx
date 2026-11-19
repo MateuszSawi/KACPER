@@ -4,7 +4,7 @@ import styles from "./Sesja.module.scss";
 const kroki = [
   {
     tytul: "Rozmowa wstępna",
-    opis: "Zaczynamy od rozmowy: co czujesz, od kiedy, jak pracujesz, jak trenujesz, jak śpisz. Bez presji i bez pośpiechu.",
+    opis: "Zaczynamy od rozmowy: co czujesz, od kiedy, w jakich sytuacjach, jak pracujesz, jak trenujesz, jak śpisz. Bez presji i bez pośpiechu.",
   },
   {
     tytul: "Ocena napięć i ruchomości",

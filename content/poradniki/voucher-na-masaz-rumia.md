@@ -4,8 +4,8 @@ description: "Voucher na godzinę pracy manualnej w Rumi to prezent, którego ob
 pubDate: 2026-11-05
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/zdjecie-06.jpg
-coverAlt: ""
+cover: /images/blog/foto-5.jpg
+coverAlt: Kacper Łapiński z uśmiechniętym klientem, dłonie na jego barkach
 draft: false
 ---
 

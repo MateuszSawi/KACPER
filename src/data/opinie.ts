@@ -28,7 +28,7 @@ export const zrodloOpinii = "Opinia z Booksy";
 export const ocenaOpinii = "Ocena: 5 na 5 gwiazdek";
 
 /** Źródło opinii - w nagłówku sekcji, obok gwiazdek */
-export const opisOpinii = "Opinie z Booksy";
+export const opisOpinii = "Opinie z Booksy i Google";
 
 export const opinie: Opinia[] = [
   {

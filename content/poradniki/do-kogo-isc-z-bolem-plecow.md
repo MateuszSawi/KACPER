@@ -4,8 +4,8 @@ description: "Pięć zawodów, jeden ból pleców. Czym różni się fizjoterape
 pubDate: 2026-11-12
 updatedDate: ""
 category: Gabinet i wizyta
-cover: /images/blog/plecy-biurko.jpg
-coverAlt: Terapeuta pracujący dłońmi z plecami osoby leżącej na stole do masażu
+cover: /images/blog/foto-6.jpg
+coverAlt: Kacper Łapiński tłumaczy coś na modelu kręgosłupa
 draft: false
 ---
 

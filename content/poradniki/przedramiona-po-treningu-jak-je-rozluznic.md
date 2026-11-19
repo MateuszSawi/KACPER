@@ -4,8 +4,8 @@ description: Twarde przedramiona po martwym ciągu, podciąganiu czy wspinaczce 
 pubDate: 2026-11-12
 updatedDate: ""
 category: Sport i regeneracja
-cover: /images/blog/przedramiona.jpg
-coverAlt: Terapeuta rozluźniający przedramię sportowca
+cover: /images/blog/foto-20.jpg
+coverAlt: Kacper Łapiński pracuje z ramieniem klientki leżącej na macie
 draft: false
 ---
 

@@ -4,8 +4,8 @@ description: "W stresie barki same idą do góry, a kark twardnieje. Dlaczego ci
 pubDate: 2026-10-23
 updatedDate: ""
 category: Kark i barki
-cover: /images/blog/napiete-barki.jpg
-coverAlt: Dłonie terapeuty na barku osoby leżącej na stole do masażu
+cover: /images/blog/foto-8.jpg
+coverAlt: Kacper Łapiński ocenia bark klienta
 draft: false
 ---
 
